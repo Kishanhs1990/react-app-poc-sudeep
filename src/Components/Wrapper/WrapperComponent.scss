@@ -212,14 +212,10 @@ $sub-wrapper-container-max-width-small: rem(992px) !default;
           }
         }
 
-        .item-img {
-          height: 10vh;
+        .item-heading {
+          height: 3vh;
           margin-bottom: 2vh;
-
-          img {
-            height: 100%;
-            width: auto;
-          }
+          margin-top: 2vh;
         }
 
         .item-details {
@@ -283,6 +279,95 @@ $sub-wrapper-container-max-width-small: rem(992px) !default;
       .half-two {
         @include breakpoint('s') {
           order: 3;
+        }
+      }
+      .playground {
+        display: flex;
+        flex-direction: row;
+
+        .countries-list {
+          align-items: center;
+          display: flex;
+          justify-content: space-evenly;
+          width: 80%;
+
+          .country-details {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem;
+            position: relative;
+
+            &:hover,
+            :active {
+              background: $app-yellow-overlay;
+              border-radius: 1rem;
+            }
+
+            @include breakpoint('xxs', 'xs') {
+              padding: 0.3rem;
+            }
+
+            @include breakpoint('m', 'l') {
+              .bolder {
+                display: none;
+              }
+            }
+
+            .country-overlay {
+              background: $app-green-overlay;
+              border-radius: 1rem;
+              bottom: 0;
+              left: 0;
+              position: absolute;
+              right: 0;
+              top: 0;
+
+              &.error {
+                background: $app-error;
+                opacity: 0.3;
+              }
+
+              p {
+                @include -font-bold;
+                color: $white;
+                margin-top: 32%;
+                text-transform: uppercase;
+              }
+            }
+
+            .item-img {
+              height: 7vh;
+              margin-bottom: 2vh;
+
+              img {
+                border-radius: 25%;
+                height: 100%;
+                width: auto;
+              }
+            }
+
+            p {
+              margin-bottom: 1vh;
+            }
+          }
+        }
+
+        @include breakpoint('xxs', 'm') {
+          align-items: center;
+          border-top: 1px solid $app-bdr-grey;
+          flex-direction: column;
+          padding: 0.5rem 0;
+
+          .item {
+            width: 20vh;
+          }
+
+          .countries-list {
+            flex-wrap: wrap;
+            margin: 2vh 0;
+            width: 100%;
+          }
         }
       }
     }

@@ -1,101 +1,81 @@
 import * as types from '../Types';
 
 const initialState = {
-  selectedPlanets: [],
-  selectedVehicles: {},
-  token: null,
+  continents: [],
+  selectedContinent: {},
+  countriesList: [],
+  selectedCountry: {},
   loading: null,
-  aftermath: null,
-  totalTime: 0.0,
   error: ''
 };
 
 const ContinentsReducer = (state = initialState, action) => {
   let result;
   switch (action.type) {
-    case types.LOAD_OUTCOME_TOKEN:
+    case types.LOAD_CONTINENTS_LIST:
       return {
         ...state,
-        token: null,
+        continents: [],
         loading: true,
         error: ''
       };
 
-    case types.LOAD_OUTCOME_TOKEN_SUCCESS: {
+    case types.LOAD_CONTINENTS_LIST_SUCCESS: {
       result = action.result || [];
       return {
         ...state,
-        token: result.token,
+        continents: result.continents,
         loading: false
       };
     }
 
-    case types.LOAD_OUTCOME_TOKEN_FAILURE:
+    case types.LOAD_CONTINENTS_LIST_FAILURE:
       return {
         ...state,
         loading: false,
         error: action.error.message
       };
 
-    case types.CLEAR_OUTCOME_CHOICES:
+    case types.CLEAR_CONTINENTS_LIST:
       return {
         ...state,
-        selectedPlanets: [],
-        selectedVehicles: {},
-        token: null,
-        aftermath: null
+        continents: [],
+        selectedContinent: {},
+        countriesList: []
       };
 
-    case types.CHOOSE_PLANET: {
-      result = action.result || { name: '', distance: 0 };
-      const newSelectedPlanets = null;
+    case types.SELECT_CONTINENT: {
+      result = action.result || { name: '', code: '?', countries: [] };
       return {
         ...state,
-        selectedPlanets: newSelectedPlanets
+        selectedContinent: { ...result },
+        countriesList: result.countries
       };
     }
 
-    case types.CHOOSE_VEHICLE: {
-      result = action.result || { planet: {}, vehicle: {} };
-      const planetName = result.planet.name || '';
-      const vehicleObj = result.vehicle || {};
-      const newSelectedVehicles = {
-        ...state.selectedVehicles
-      };
-      const currentVehicleUsedCount = Object.values(newSelectedVehicles)
-        .map(selectedVehicle => selectedVehicle.name)
-        .filter(selectedVehicleName => selectedVehicleName === vehicleObj.name).length;
-      if (
-        currentVehicleUsedCount + 1 <= vehicleObj.total_no ||
-        (newSelectedVehicles[planetName] &&
-          newSelectedVehicles[planetName].name === vehicleObj.name)
-      )
-        newSelectedVehicles[planetName] = vehicleObj;
+    case types.FETCH_COUNTRY_RESULT:
       return {
         ...state,
-        selectedVehicles: newSelectedVehicles,
-        totalTime: null
-      };
-    }
-
-    case types.FETCH_OUTCOME_RESULT:
-      return {
-        ...state,
-        aftermath: null,
+        selectedCountry: {},
         loading: true,
         error: ''
       };
 
-    case types.FETCH_OUTCOME_RESULT_SUCCESS: {
+    case types.FETCH_COUNTRY_RESULT_SUCCESS: {
       result = action.result || [];
+      const newCountriesList = state.countriesList.map(country => {
+        if (country.code === result.country.code) return result.country;
+        return country;
+      });
       return {
         ...state,
-        aftermath: result,
+        selectedCountry: result.country,
+        countriesList: newCountriesList,
         loading: false
       };
     }
 
-    case types.FETCH_OUTCOME_RESULT_FAILURE:
+    case types.FETCH_COUNTRY_RESULT_FAILURE:
       return {
         ...state,
         loading: false,

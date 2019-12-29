@@ -6,10 +6,11 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { routerMiddleware } from 'connected-react-router';
 
 import clientMiddleware from './Middlewares/ClientMiddleware';
+import apolloClient from './Middlewares/ApolloMiddleware';
 import history from '../Router/History';
 import RootReducer from './Reducers/RootReducer';
 
-const client = axios.create({
+const httpClient = axios.create({
   baseURL: process.env.REACT_APP_API_BASE_URL,
   withCredentials: false,
   headers: {
@@ -28,7 +29,12 @@ const configureStore = (options = { logger: true }) => {
     }
   }
 
-  const middleware = [ReduxThunk, routerMiddleware(history), promise, clientMiddleware(client)];
+  const middleware = [
+    ReduxThunk,
+    routerMiddleware(history),
+    promise,
+    clientMiddleware(httpClient, apolloClient)
+  ];
   if (options.logger && process.env.REACT_APP_ENV !== 'Production') {
     const logger = createLogger({ collapsed: true });
     middleware.push(logger);

@@ -1,11 +1,6 @@
-export const LOAD_CONTINENTS_TOKEN = 'continents/LOAD_DATA_ITEM';
-export const LOAD_CONTINENTS_TOKEN_SUCCESS = 'continents/LOAD_DATA_ITEM_SUCCESS';
-export const LOAD_CONTINENTS_TOKEN_FAILURE = 'continents/LOAD_DATA_ITEM_FAILURE';
+export const LOAD_CONTINENTS_LIST = 'continents/LOAD_DATA_ITEM';
+export const LOAD_CONTINENTS_LIST_SUCCESS = 'continents/LOAD_DATA_ITEM_SUCCESS';
+export const LOAD_CONTINENTS_LIST_FAILURE = 'continents/LOAD_DATA_ITEM_FAILURE';
 
-export const FETCH_CONTINENTS_RESULT = 'continents/FETCH_RESULT';
-export const FETCH_CONTINENTS_RESULT_SUCCESS = 'continents/FETCH_RESULT_SUCCESS';
-export const FETCH_CONTINENTS_RESULT_FAILURE = 'continents/FETCH_RESULT_FAILURE';
-
-export const CLEAR_CONTINENTS_CHOICES = 'continents/CLEAR_CHOICES';
-
-export const CHOOSE_CONTINENT = 'continents/SELECT_DATA_ITEM';
+export const SELECT_CONTINENT = 'continents/SELECT_DATA_ITEM';
+export const CLEAR_CONTINENTS_LIST = 'continents/CLEAR_LIST';

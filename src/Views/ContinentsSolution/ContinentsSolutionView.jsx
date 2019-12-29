@@ -5,8 +5,8 @@ import ContinentsSolutionRoutes from './ContinentsSolutionRoutes';
 
 const ContinentsSolutionView = () => {
   const labels = [
-    ['/continents/select-continents', 'Select Continent'],
-    ['/continents/continent-details', 'Continent Details']
+    ['/continents/select-continent', 'Select Continent'],
+    ['/continents/country-details', 'Country Details']
   ];
   let titleName = 'Continents';
   labels.forEach(([urlString, actualTitle]) => {
