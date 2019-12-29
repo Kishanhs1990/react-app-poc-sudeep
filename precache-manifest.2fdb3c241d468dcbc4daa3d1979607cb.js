@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6b8e974c391e4af279679fbb72177f23",
+    "revision": "6b6beadc049661b139b96a385e67f986",
     "url": "/react-app-poc-sudeep/index.html"
   },
   {
@@ -44,8 +44,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-app-poc-sudeep/static/js/64.6c73fc1b.chunk.js"
   },
   {
-    "revision": "5a1f5a5d9b50832d8efa",
-    "url": "/react-app-poc-sudeep/static/js/main.053d63db.chunk.js"
+    "revision": "447b874f6c2464d3cdce",
+    "url": "/react-app-poc-sudeep/static/js/main.3c9c45ea.chunk.js"
   },
   {
     "revision": "912703d1deeec6e1d4b3",
@@ -208,8 +208,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-app-poc-sudeep/static/js/nm.redux-logger.a61c3274.chunk.js"
   },
   {
-    "revision": "f6d6bf62e1b00802c884",
-    "url": "/react-app-poc-sudeep/static/js/nm.redux-promise-middleware.f102de0e.chunk.js"
+    "revision": "feb3988b827474b99a18",
+    "url": "/react-app-poc-sudeep/static/js/nm.redux-promise-middleware.ae3f49bb.chunk.js"
   },
   {
     "revision": "2019f5a2a18758b53ed4",
