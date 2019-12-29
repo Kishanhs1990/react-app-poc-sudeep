@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[58],{131:function(e,a,t){"use strict";t.r(a);var n=t(1),c=t.n(n),r=t(37);t(111);a.default=function(){return c.a.createElement("header",{className:"header"},c.a.createElement("div",{className:"container"},c.a.createElement("div",{className:"content"},c.a.createElement("div",{className:"big-header-text"},c.a.createElement(r.a,{to:"/"},"React-App-POC")))))}}}]);
+//# sourceMappingURL=58.44f57c4d.chunk.js.map

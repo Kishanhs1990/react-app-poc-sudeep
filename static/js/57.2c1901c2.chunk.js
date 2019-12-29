@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[57],{132:function(e,a,t){"use strict";t.r(a);var n=t(1),c=t.n(n);t(112);a.default=function(){return c.a.createElement("footer",{className:"footer"},c.a.createElement("div",{className:"container"},c.a.createElement("div",{className:"content"},c.a.createElement("div",{className:"small-footer-text"}),c.a.createElement("div",{className:"small-footer-text"},"Created by Sudeep"))))}}}]);
+//# sourceMappingURL=57.2c1901c2.chunk.js.map
