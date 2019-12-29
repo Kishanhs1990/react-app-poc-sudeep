@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { ConnectedRouter as Router } from 'connected-react-router';
 import { Provider } from 'react-redux';
 
+import * as sw from './serviceWorker';
 import AppComponent from './Components/App/AppComponent';
 import configureStore from './Store/ConfigureStore';
 import configureWebFontService from './Services/WebFontService';
@@ -15,6 +16,9 @@ console.log(`${process.env.PROJECT_VERSION}:${process.env.REACT_APP_ENV}`);
 // if (process.env.REACT_APP_ENV === 'Development') {
 configureWebFontService();
 // }
+
+// Handling service worker registration
+sw.register();
 
 ReactDOM.render(
   <Provider store={store}>

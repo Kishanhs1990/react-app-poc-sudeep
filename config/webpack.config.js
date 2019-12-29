@@ -28,6 +28,7 @@ const { loader: _loader } = MiniCssExtractPlugin;
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const { safePostCssParser } = require('postcss-safe-parser');
 const ManifestPlugin = require('webpack-manifest-plugin');
+const { InjectManifest } = require('workbox-webpack-plugin');
 const postcssNormalize = require('postcss-normalize');
 const {
   servedPath,
@@ -571,6 +572,13 @@ module.exports = function(webpackEnv) {
           };
         }
       }),
+      isEnvProduction &&
+        new InjectManifest({
+          swSrc: 'src/service-worker-custom-template.js', // this is your sw template file
+          swDest: 'service-worker-custom.js', // this will be created in the build step
+          globDirectory: 'build',
+          globPatterns: ['**/*.{js,css,html,png,ico}']
+        }),
       isEnvProduction &&
         new BundleAnalyzerPlugin({
           analyzerMode: 'static',
