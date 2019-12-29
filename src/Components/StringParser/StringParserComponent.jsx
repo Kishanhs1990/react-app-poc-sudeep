@@ -1,8 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import CodeEditorComponent from '../CodeEditor/CodeEditorComponent';
 import { StringParserActions } from '../../Store/Actions';
@@ -21,7 +20,7 @@ class StringParserComponent extends React.Component {
     this.state = {
       buttonText: 'Parse',
       accumulator: 'and',
-      input: ``
+      input: ''
     };
   }
 
@@ -39,13 +38,13 @@ class StringParserComponent extends React.Component {
   };
 
   handleClick = async () => {
-    const { input } = this.state;
+    const { input, accumulator } = this.state;
     const { actions } = this.props;
     this.setState({
       buttonText: 'Parsing..'
     });
     await this.sleep(1000);
-    actions.parseToJSON(input, 'and');
+    actions.parseToJSON(input, accumulator);
     this.setState({ buttonText: 'Parse' });
   };
 
@@ -72,7 +71,7 @@ class StringParserComponent extends React.Component {
               </div>
               <div className="half-column half-two">
                 <div className="title-box heading">JSON response here!</div>
-                <CodeEditorComponent id="output" data={parsedResultJSON} readOnly={true} />
+                <CodeEditorComponent id="output" data={parsedResultJSON} readOnly />
               </div>
               <div className="buttons-box button-column">
                 <button type="button" onClick={() => this.handleClick()}>

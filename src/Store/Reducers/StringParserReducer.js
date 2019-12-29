@@ -25,12 +25,6 @@ const StringParserReducer = (state = initialState, action) => {
         parsedResultJSON,
         error
       };
-      // } catch(err) {
-      // return {
-      //   ...state,
-      //   error: err
-      // }
-      // }
     }
 
     default:

@@ -4,12 +4,12 @@ import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-javascript';
 import 'ace-builds/src-noconflict/theme-monokai';
 
-class CodeEditor extends React.Component {
+class CodeEditor extends React.PureComponent {
   render() {
-    let {
+    const {
       id,
       onChangeFunc = () => {},
-      data = ``,
+      data = '',
       mode = 'javascript',
       readOnly = false
     } = this.props;
@@ -19,14 +19,14 @@ class CodeEditor extends React.Component {
         className="code-editor"
         mode={mode}
         theme="monokai"
-        name={'' + id}
+        name={id}
         onChange={onChangeFunc}
         setOptions={{ useWorker: false }}
         width="100% !important"
         height="40vh"
         value={data}
         readOnly={readOnly}
-        wrapEnabled={true}
+        wrapEnabled
       />
     );
   }
