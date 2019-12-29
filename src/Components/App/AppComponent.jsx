@@ -2,6 +2,8 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import Helmet from 'react-helmet';
+import * as defaultMeta from '../../Services/metadataService';
 
 import RouteSwitcher from '../../Router/RouteSwitcher';
 import Routes from '../../Router/Routes';
@@ -33,6 +35,7 @@ class AppComponent extends React.PureComponent {
     if (loading) appComponentClassList.push('loader-active');
     return (
       <>
+        <Helmet title={defaultMeta.title} meta={defaultMeta.meta} link={defaultMeta.link} />
         <React.Suspense fallback={<div>Loading...</div>}>
           <div className={appComponentClassList.join(' ')}>
             <HeaderComponent />
